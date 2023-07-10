@@ -1,0 +1,34 @@
+// $desktop: 1400px;
+$tablet: 1210px;
+$mobile: 850px;
+
+// @mixin desktop {
+//     @media screen and (max-width: #{$desktop}) {
+//         @content;
+//     }
+// }
+@mixin tablet {
+    @media screen and (max-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: #{$mobile}) {
+        @content;
+    }
+}
+
+@mixin custom($width) {
+    @media screen and (max-width: #{$width}) {
+        @content;
+    }
+}
+
+@mixin hover {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,163 @@
+@use '../helpers/' as *;
+
+// @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+// .content {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     // width: 400px;
+//     // height: 400px;
+//     transform: translate(-50%, -50%);
+//     // display: flex;
+//     // align-items: center;
+//     // justify-content: center;
+//     // border-radius: 2px;
+//     // box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+//     // background: #feac5e; /* fallback for old browsers */
+//     // background: -webkit-linear-gradient(to right, #4bc0c8, #c779d0, #feac5e); /* Chrome 10-25, Safari 5.1-6 */
+//     // background: linear-gradient(to right, #4bc0c8, #c779d0, #feac5e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+// }
+// svg text {
+//     font-family: 'Bebas Neue', cursive;
+//     font-size: 6rem;
+//     stroke-width: 3px;
+//     stroke: #fff;
+//     fill: transparent;
+//     stroke-dashoffset: 750;
+//     stroke-dasharray: 750;
+//     animation: stroke 1s linear;
+//     animation-fill-mode: forwards;
+// }
+
+// $total: 7;
+// @for $i from 1 through $total {
+//     text:nth-child(#{$i}) {
+//         animation-delay: $i - 1 + s;
+//     }
+// }
+
+// @keyframes stroke {
+//     0% {
+//         stroke-dashoffset: 750;
+//     }
+//     70% {
+//         // fill: #fff;
+//     }
+//     100% {
+//         stroke-dashoffset: 0;
+//         fill: rgba(#fff, 0.5);
+//     }
+// }
+
+#logo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    // width: 13rem;
+    // fill: transparent;
+    z-index: 13;
+    width: 250px;
+    -webkit-animation: logoMove 0.3s 2.1s ease-out forwards;
+    animation: logoMove 0.3s 2.1s ease-out forwards;
+}
+
+#svg {
+    width: 100%;
+    height: 100%;
+}
+
+// #logo rect {
+//     -webkit-animation: line 1s ease-out forwards;
+//     animation: line 1s ease-out forwards;
+//     // stroke: #66c9cf;
+//     stroke: #d2ac2c;
+//     stroke-dasharray: 250;
+//     stroke-dashoffset: 250;
+// }
+
+// #logo path {
+//     -webkit-animation: opacity 1s 0.7s ease-out forwards;
+//     animation: opacity 1s 0.7s ease-out forwards;
+//     // fill: #66c9cf;
+//     fill: #d2ac2c;
+//     opacity: 0;
+// }
+
+.intro {
+    width: 100%;
+    height: 100vh;
+    background-color: $c-black;
+    z-index: 12;
+    opacity: 1;
+    @include flex;
+    @include position($p: fixed, $t: 0, $l: 0);
+
+    -webkit-animation: removeBg 0.4s 2.2s ease-out forwards;
+    animation: removeBg 0.4s 2.2s ease-out forwards;
+
+    // display: none;
+}
+
+// #demo-svg path {
+//     stroke-dashoffset: 1000;
+//     stroke-dashoffset: 0;
+// }
+
+// @-webkit-keyframes line {
+//     to {
+//         stroke-dashoffset: 0;
+//     }
+// }
+
+// @keyframes line {
+//     to {
+//         stroke-dashoffset: 0;
+//     }
+// }
+
+// @-webkit-keyframes opacity {
+//     to {
+//         opacity: 1;
+//     }
+// }
+
+// @keyframes opacity {
+//     to {
+//         opacity: 1;
+//     }
+// }
+
+// @-webkit-keyframes logoMove {
+//     to {
+//         top: 1.2rem;
+//         left: 5%;
+//         -webkit-transform: translate(0, 0);
+//         transform: translate(0, 0);
+//         // width: 8rem;
+//     }
+// }
+
+@keyframes logoMove {
+    to {
+        top: 30px;
+        left: 5%;
+        transform: translate(0, 0);
+        width: 7rem;
+    }
+}
+
+// @-webkit-keyframes removeBg {
+//     to {
+//         opacity: 0;
+//     }
+// }
+
+@keyframes removeBg {
+    to {
+        opacity: 0;
+        z-index: -100;
+    }
+}

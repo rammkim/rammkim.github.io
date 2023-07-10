@@ -1,0 +1,191 @@
+@use '../helpers/' as *;
+
+article {
+    width: 100%;
+    height: 100%;
+    &:not(.visual) {
+        padding-top: 150px;
+        // @include mobile {
+        //     padding-top: 100px;
+        // }
+    }
+    &.contact {
+        height: auto;
+        padding: 150px 0;
+        // @include mobile {
+        //     padding: 10px 0;
+        // }
+    }
+    @include flex;
+    @include mobile {
+        &:not(.intro, .visual) {
+            padding-bottom: 10px;
+            height: auto;
+        }
+    }
+}
+.inner {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    padding: 0 100px;
+    @include mobile {
+        padding: 0 10vw;
+    }
+}
+
+// .title {
+//     font-size: 28px;
+//     @include mobile {
+//         font-size: 22px;
+//     }
+// }
+.button {
+    display: inline-block;
+    color: $c-simbol;
+    padding: 12px 24px;
+    border: 1px solid $c-simbol;
+    border-radius: 20px;
+    @include mobile {
+        font-size: 15px;
+        padding: 10px 18px;
+    }
+
+    &.on {
+        color: $c-back;
+        background-color: $c-simbol;
+        font-weight: $fw-bold;
+    }
+
+    &:hover {
+        color: $c-back;
+        background-color: $c-simbol;
+        font-weight: $fw-bold;
+
+        a {
+            color: $c-basic;
+        }
+    }
+}
+
+.floating {
+    gap: 14px;
+    z-index: $z-floating;
+    @include flex($d: column);
+    @include position($p: fixed, $b: 100px, $r: 3%);
+    // @include mobile {
+    //     right: 3%;
+    // }
+
+    &__item {
+        // display: inline-block;
+        position: relative;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: $c-basic;
+        // opacity: 0.5;
+        @include mobile {
+            width: 40px;
+            height: 40px;
+        }
+
+        &:first-child {
+            background-image: url('#{$path-image}/icon/github.png');
+            @include background-cover;
+        }
+
+        a {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            padding: 5px 10px;
+            white-space: nowrap;
+
+            &:hover + .floating__item-link {
+                display: block;
+            }
+        }
+
+        i {
+            font-size: 32px;
+            @include position($t: 50%, $l: 50%);
+            @include mobile {
+                font-size: 22px;
+            }
+        }
+    }
+    &__item-link {
+        display: none;
+        // width: 127px;
+        text-align: right;
+        line-height: 1.2;
+        color: $c-title;
+        background-color: $c-back;
+        @include position($t: 50%, $r: 56px);
+    }
+}
+
+.bg-star {
+    -webkit-animation: starBg 40s linear infinite forwards;
+    animation: starBg 40s linear infinite forwards;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100vh;
+    background-image: url('#{$path-image}/etc/visual-star.png');
+    background-position: left center;
+    background-size: 50% 100%;
+    z-index: $z-back;
+}
+
+@-webkit-keyframes starBg {
+    to {
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes starBg {
+    to {
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+}
+
+[data-color='light'] {
+    color: $c-light;
+}
+[data-color='simbol'] {
+    color: $c-simbol;
+}
+[data-color='title'] {
+    color: $c-title;
+}
+[data-color='basic'] {
+    color: $c-basic;
+}
+
+.footer {
+    position: relative;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+    font-size: 15px;
+    color: $c-basic;
+    @include flex($j: between);
+    // @include desktop {
+    //     padding: 3%;
+    // }
+    @include mobile {
+        font-size: 12px;
+        flex-direction: column;
+    }
+}
+
+.copyright {
+    @include mobile {
+        padding-bottom: 1vh;
+    }
+}

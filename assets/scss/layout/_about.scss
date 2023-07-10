@@ -1,0 +1,48 @@
+@use '../helpers/' as *;
+
+.about {
+    @include title;
+
+    &__me {
+        // flex-wrap: wrap;
+        gap: 20px;
+        @include flex($j: between);
+        @include mobile {
+            flex-direction: column;
+        }
+    }
+    &__me-text {
+        width: 55%;
+        @include desc;
+        @include mobile {
+            width: 100%;
+            order: 1;
+            font-size: 15px;
+            // text-align: center;
+        }
+    }
+    &__me-img {
+        width: 45%;
+        max-width: 350px;
+        height: 400px;
+        // background-color: $c-basic;
+        border-radius: 10px;
+        background-image: url('#{$path-image}/etc/my-img.jpg');
+        @include background-cover;
+        @include tablet {
+            width: 80%;
+            order: 0;
+        }
+    }
+    &__skill-section {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+    &__skill {
+        span {
+            font-size: 18px;
+        }
+    }
+}

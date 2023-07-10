@@ -1,0 +1,100 @@
+@use '../helpers/' as *;
+
+.career {
+    @include title;
+
+    .inner {
+        height: auto;
+    }
+
+    // &__com {
+    //     font-size: 22px;
+    //     margin-top: 40px;
+
+    // }
+
+    &__section {
+        @include flex($j: f-start, $a: f-start);
+        @include mobile {
+            flex-direction: column;
+        }
+    }
+    &__item {
+        color: $c-basic;
+        font-size: 15px;
+        background-color: $c-back;
+        padding: 20px 80px 20px 20px;
+        text-align: center;
+        cursor: pointer;
+
+        & + & {
+            margin-top: 10px;
+        }
+
+        &.-active {
+            color: $c-simbol;
+            border-left: 4px solid $c-simbol;
+        }
+    }
+    &__list {
+        display: inline-block;
+    }
+    &__desc {
+        width: 70%;
+        margin-left: 40px;
+        @include custom-scroll;
+        @include mobile {
+            width: 100%;
+            margin: 30px 0 0;
+        }
+    }
+    &__title {
+        font-size: 24px;
+        font-weight: $fw-bold;
+        @include mobile {
+            font-size: 20px;
+        }
+    }
+    &__period {
+        font-size: 18px;
+        margin-top: 20px;
+        @include mobile {
+            font-size: 16px;
+        }
+
+        span {
+            position: relative;
+            font-size: 16px;
+            padding-left: 14px;
+
+            &::before {
+                content: '';
+                width: 1px;
+                height: 80%;
+                background-color: $c-title;
+                @include position($t: 1px, $l: 4px);
+            }
+        }
+    }
+    &__sub {
+        margin-top: 30px;
+        @include desc;
+        // @include mobile {
+        //     margin-top: 20px;
+        // }
+    }
+    &__content-section {
+        margin-top: 30px;
+        // @include mobile {
+        //     margin-top: 20px;
+        // }
+    }
+    &__content {
+        color: $c-basic;
+        line-height: 1.6;
+        @include pick;
+    }
+    &__btn {
+        margin-top: 30px;
+    }
+}

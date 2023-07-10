@@ -1,0 +1,90 @@
+@use '../helpers/' as *;
+
+.project {
+    height: auto;
+    @include title;
+
+    &__tab-list {
+        gap: 10px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        @include flex($j: f-start);
+    }
+    &__tab {
+        span {
+            font-size: 18px;
+        }
+
+        &.on button {
+            color: $c-back;
+            background-color: $c-simbol;
+            font-weight: $fw-bold;
+
+            a {
+                color: $c-basic;
+            }
+        }
+    }
+    &__list-section {
+        margin-top: 30px;
+    }
+    &__list {
+        gap: 20px;
+        flex-wrap: wrap;
+        @include flex($j: f-start);
+        display: none;
+        @include mobile {
+            // width:100%;
+            // gap: 0;
+        }
+
+        &.on {
+            display: flex;
+        }
+    }
+    &__item {
+        background-color: $c-back;
+        padding: 20px;
+        border-radius: 20px;
+        transition: 0.3s ease;
+        // width: calc(33% - 10px);
+        width: calc(32%);
+        height: 260px;
+        @include flex($d: column, $a: f-start);
+        @include tablet {
+            width: 48%;
+        }
+        @include mobile {
+            width: 100%;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 8px $c-simbol;
+        }
+    }
+    &__title {
+        line-height: 1.3;
+        @include flex($j: f-start, $a: f-end);
+
+        h4 {
+            font-size: 22px;
+        }
+    }
+    &__repon {
+        font-size: 20px;
+        color: $c-basic;
+        margin-left: 10px;
+    }
+    &__date {
+        margin: 14px 0;
+    }
+    &__cb {
+        margin-bottom: 14px;
+    }
+    &__btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+}

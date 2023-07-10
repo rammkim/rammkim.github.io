@@ -1,0 +1,200 @@
+@use '../helpers/' as *;
+
+.resume {
+    height: auto;
+    // padding-top: 180px;
+    font-family: 'Roboto', sans-serif;
+    @include mobile {
+        // padding-top: 15vh;
+    }
+
+    .inner {
+        // @include tablet {
+        //     max-width: none;
+        //     padding: 0 45px;
+        // }
+        @include mobile {
+            padding: 0 4vw;
+        }
+    }
+
+    &__section {
+        margin-top: 80px;
+        @include mobile {
+            margin-top: 5vh;
+        }
+    }
+    &__title {
+        color: $c-light;
+        font-size: 40px;
+        font-weight: $fw-bold;
+        @include mobile {
+            font-size: 22px;
+        }
+    }
+    &__sub-title {
+        color: $c-title;
+        font-size: 24px;
+        font-weight: $fw-bold;
+        @include mobile {
+            font-size: 16px;
+        }
+    }
+    &__box {
+        margin-top: 30px;
+        @include flex($j: between, $a: f-start);
+        @include mobile {
+            margin-top: 2vh;
+            flex-direction: column;
+        }
+
+        h3 {
+            color: $c-title;
+            font-size: 22px;
+            // font-weight: $fw-bold;
+            margin-bottom: 30px;
+            @include mobile {
+                font-size: 16px;
+            }
+        }
+        // strong {
+        //     color: $c-light;
+        // }
+    }
+    &__edu {
+        font-size: 18px;
+        line-height: 1.3em;
+        @include mobile {
+            font-size: 15px;
+        }
+
+        span {
+            font-size: 15px;
+            @include mobile {
+                font-size: 12px;
+            }
+        }
+    }
+    &__career {
+        width: 20%;
+        font-size: 18px;
+        line-height: 1.5em;
+        @include mobile {
+            width: 100%;
+            font-size: 15px;
+            margin-bottom: 5vh;
+        }
+    }
+    &__me {
+        li {
+            font-size: 18px;
+            margin: 0 0 10px;
+            @include mobile {
+                font-size: 15px;
+            }
+        }
+
+        .fa {
+            margin-right: 10px;
+        }
+    }
+    &__subject {
+        & + & {
+            margin-top: 50px;
+        }
+    }
+
+    .fa {
+        color: $c-title;
+    }
+}
+
+.resume__project {
+    width: 70%;
+    @include mobile {
+        width: 100%;
+    }
+
+    &-wrap {
+        padding: 40px 0;
+        border-top: 1px solid $c-title;
+        @include mobile {
+            padding: 5vh 0;
+        }
+    }
+    &-name {
+        font-size: 18px;
+        // font-weight: $fw-bold;
+        margin: 10px 0;
+        color: $c-simbol;
+        @include mobile {
+            font-size: 14px;
+            margin: 0.8vh 0;
+        }
+    }
+    &-noti {
+        display: inline-block;
+        font-size: 13px;
+        line-height: 1.5em;
+        color: $c-title;
+        padding: 8px;
+        margin-top: 10px;
+        border-radius: 4px;
+        background-color: rgba($c-basic, 0.2);
+
+        span {
+            font-weight: $fw-bold;
+        }
+    }
+    &-list {
+        margin-top: 36px;
+
+        ul {
+            padding-left: 24px;
+        }
+
+        li {
+            font-size: 14px;
+            line-height: 1.5em;
+            margin: 8px 0;
+            list-style: disc;
+            @include mobile {
+                font-size: 13px;
+            }
+        }
+        strong {
+            color: #ccd6f6;
+        }
+        p {
+            margin: 24px 0 12px 0;
+            @include mobile {
+                font-size: 14px;
+                margin: 2vh 0;
+            }
+        }
+    }
+}
+
+.link {
+    display: inline-block;
+    padding-top: 10px;
+    color: $c-basic;
+    @include mobile {
+        font-size: 13px;
+    }
+
+    &:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+}
+
+small {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #d0d4e6;
+    // color: $c-title;
+    @include mobile {
+        // font-size: 14px;
+    }
+}

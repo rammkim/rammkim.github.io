@@ -1,0 +1,37 @@
+@use '../helpers/' as *;
+
+.contact {
+    @include title;
+    @include mobile {
+        padding-bottom: 150px;
+    }
+
+    &__form-section {
+        width: 500px;
+        @include mobile {
+            width: 100%;
+        }
+    }
+    &__form-title {
+        font-size: 16px;
+        padding: 20px 0 12px 0;
+    }
+    &__form {
+        input,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            outline: none;
+            border: none;
+            color: $c-back;
+        }
+    }
+    &__btn {
+        margin-top: 30px;
+    }
+
+    // .inner {
+    //     @include flex($d: column, $a: f-start);
+    // }
+}

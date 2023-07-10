@@ -1,0 +1,191 @@
+@use './variables' as *;
+@use './mediaQueries' as *;
+
+// VW
+// @function tablet-vw($target) {
+//     $vw-context: (1210 * 0.01) * 1px;
+//     @return ($target / $vw-context) * 1vw;
+// }
+
+$base-rem-size: 16px;
+@function rem($px, $base: $base-rem-size) {
+    @return (remove-unit($px / $base)) * 1rem;
+}
+
+// FLEXBOX
+$flex-map: (
+    f-start: flex-start,
+    f-end: flex-end,
+    between: space-between,
+    around: space-around,
+    stretch: stretch,
+    center: center
+);
+
+@function _get-flex-value($key) {
+    @return map-get($flex-map, $key);
+}
+
+@mixin flex($j: center, $a: center, $d: row) {
+    display: flex;
+    justify-content: _get-flex-value($j);
+    align-items: _get-flex-value($a);
+    flex-direction: $d;
+}
+
+// POSITION
+@mixin position($p: absolute, $t: null, $r: null, $b: null, $l: null) {
+    position: $p;
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+
+    @if $t==50% and $l ==50% {
+        transform: translate(-50%, -50%);
+    } @else if $t == 50% {
+        transform: translateY(-50%);
+    } @else if $l == 50% {
+        transform: translateX(-50%);
+    }
+}
+
+// BACKGROUND
+@mixin background-cover($value: 0) {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    @if ($value == 1) {
+        background-position: bottom center;
+    }
+}
+
+// CUSTOM-SCROLL
+@mixin custom-scroll($color: $c-basic) {
+    overflow-y: auto;
+
+    // 스크롤바 영역에 대한 설정
+    &::-webkit-scrollbar {
+        width: 10px; /* 스크롤바의 너비 */
+        border-radius: 3px;
+        @include mobile {
+            width: 5px;
+        }
+    }
+
+    // 스크롤바 뒷 배경에 대한 설정
+    &::-webkit-scrollbar-track {
+        // margin: 0.5em;
+        background-color: transparent;
+    }
+
+    // 스크롤바 막대에 대한 설정
+    &::-webkit-scrollbar-thumb {
+        height: 15%; /* 스크롤바의 길이 */
+        background-color: $color;
+        border-radius: 3px;
+    }
+}
+
+// 타이틀
+@mixin subject {
+    z-index: -1;
+    position: sticky;
+    top: 22%;
+    font-family: 'Cormorant SC', serif;
+    width: 100%;
+    font-size: 100px;
+    font-weight: $fw-light;
+    line-height: 1.3em;
+    color: $c-gray;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 10vh;
+    @include tablet {
+        font-size: 80px;
+    }
+    @include mobile {
+        font-size: 40px;
+    }
+}
+
+@mixin show {
+    &.-show {
+        display: block;
+    }
+}
+
+@mixin box-ani {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    padding: 18px 40px;
+    border-top: 1px solid $c-gray;
+    border-bottom: 1px solid $c-gray;
+    margin-top: 50px;
+    @include tablet {
+        font-size: 18px;
+        margin-top: 30px;
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        width: 1px;
+        height: 0;
+        transition: 0.2s;
+        background-color: $c-gray;
+    }
+    &::before {
+        @include position($t: 0, $l: 0);
+    }
+    &::after {
+        @include position($b: 0, $r: 0);
+    }
+
+    &:hover {
+        font-weight: $fw-medium;
+    }
+
+    &:hover::before,
+    &:hover::after {
+        height: 100%;
+    }
+}
+
+@mixin title {
+    .title {
+        font-size: 32px;
+        font-weight: $fw-bold;
+        color: $c-title;
+        margin-bottom: 40px;
+        @include mobile {
+            font-size: 24px;
+            // margin-bottom: 25px;
+        }
+    }
+
+    span {
+        font-size: 22px;
+        font-weight: $fw-medium;
+        @include mobile {
+            font-size: 20px;
+        }
+    }
+}
+@mixin desc {
+    line-height: 1.5;
+    font-size: 17px;
+    @include mobile {
+        font-size: 15px;
+    }
+}
+
+@mixin pick {
+    &::before {
+        content: '▹';
+        color: $c-simbol;
+        margin-right: 6px;
+    }
+}
