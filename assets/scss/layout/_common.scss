@@ -18,7 +18,7 @@ article {
     }
     @include flex;
     @include mobile {
-        &:not(.intro, .visual) {
+        &:not(.intro, .visual, .contact) {
             padding-bottom: 10px;
             height: auto;
         }
